@@ -47,3 +47,10 @@ Comma (no space) separated list of what to output.
 
 - **Options:** `unchanged`, `passed` (includes the `OK` status, did not find a difference), `failed`, `failed_message`
 - **Default:** `failed,failed_message`
+
+## Todo
+
+- [ ] `ERROR` state
+- [ ] `TIMEOUT` state
+- [ ] Output for both tests and subtests
+- [ ] Compare two reports
