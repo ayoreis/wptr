@@ -2,7 +2,7 @@
 
 A quick script that logs the status vs expectation of a WPT run.
 
-I wrote this to help out when [I was working](https://github.com/oddbird/css-anchor-positioning/pull/195) on Obbbird's CSS Anchor Positioning polyfill. I have only tested it on `/css/css-anchor-position` directory, if it does not work on other directories test feel free to open an issue/pull request and I may fix/merge it.
+I wrote this to help out when [I was working](https://github.com/oddbird/css-anchor-positioning/pull/195) on Obbbird's CSS Anchor Positioning polyfill. I have only tested it on the `/css/css-anchor-position` directory, if it does not work on other directories test feel free to open an issue/pull request.
 
 ## Usage
 
@@ -14,12 +14,12 @@ Make sure you have [WPT](https://web-platform-tests.org/running-tests/from-local
 # Inside your WPT installation
 
 ./wpt run --log-wptreport=report-old.json [browsername] [tests]
-./wpt update-expectations report-old.json
 mkdir meta
-./wpt run --metadata=meta --log-wptreport=report-new.json [browsername] [tests]
+./wpt update-expectations report-old.json
+./wpt run --log-wptreport=report-new.json --metadata=meta [browsername] [tests]
 ```
 
-Now `report-new.json` should include `status` and `expected` properties for on some tests.
+Now `report-new.json` should include `status` and `expected` fields on some of the test results.
 
 Then [install](https://docs.deno.com/runtime/manual/tools/script_installer) wptr
 and run it on `report-new.json`:
@@ -45,7 +45,7 @@ Path to the [WPT report](https://web-platform-tests.org/running-tests/command-li
 
 Comma (no space) separated list of what to output.
 
-- **Options:** `unchanged`, `passed` (includes the `OK` status, did not find a difference), `failed`, `failed_message`
+- **Options:** `unchanged`, `passed` (includes the `OK` status, didn't find a reason to separate them), `failed`, `failed_message`
 - **Default:** `failed,failed_message`
 
 ## Todo
